@@ -1,0 +1,24 @@
+@import "tailwindcss";
+:root{--primary:#071888;--secondary:#14B8A6;--dark:#14146c;--light:#F0FDFA;--text:#334155;--font-display:var(--font-body)}
+@theme inline{--color-primary:var(--primary);--color-secondary:var(--secondary);--color-dark:var(--dark);--color-light:var(--light);--font-serif:var(--font-display),Georgia,serif;--font-sans:var(--font-body),system-ui,sans-serif}
+html{scroll-behavior:smooth}
+body{color:var(--text);background:#fff;overflow-x:hidden}
+:focus-visible{outline:3px solid var(--secondary);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+section[id]{scroll-margin-top:5rem}@media(max-width:767px){body{padding-bottom:4.5rem}}
+
+/* Reference-style design language (Plus Jakarta Sans, bold headings, soft glows, dotted backgrounds) */
+.font-serif{font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(60rem 30rem at 85% -10%,color-mix(in srgb,var(--primary) 14%,transparent),transparent 60%),radial-gradient(40rem 25rem at -10% 110%,color-mix(in srgb,var(--secondary) 18%,transparent),transparent 60%)}
+.hero-dots,.dots-bg{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(color-mix(in srgb,var(--primary) 22%,transparent) 1.2px,transparent 1.2px);background-size:22px 22px;-webkit-mask-image:linear-gradient(to bottom,#000,transparent 85%);mask-image:linear-gradient(to bottom,#000,transparent 85%)}
+.img-glow{position:absolute;inset:8% 4%;border-radius:3rem;background:linear-gradient(135deg,var(--secondary),var(--primary));filter:blur(48px);opacity:.35}
+.pulse-dot{animation:pulse-dot 2s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--secondary) 55%,transparent)}50%{box-shadow:0 0 0 7px transparent}}
+.card-shine{position:relative;overflow:hidden}
+.card-shine::after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);transition:left .7s ease;pointer-events:none}
+.card-shine:hover::after{left:130%}
+@keyframes float-wa{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.float-wa{animation:float-wa 2.4s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){.pulse-dot,.float-wa{animation:none}.card-shine::after{display:none}}
+
+.no-scrollbar{scrollbar-width:none}.no-scrollbar::-webkit-scrollbar{display:none}
